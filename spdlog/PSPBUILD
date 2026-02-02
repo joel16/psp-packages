@@ -17,6 +17,11 @@ sha256sums=('b11912a82d149792fef33fabd0503b13d54aeac25c1464755461d4108ea71fc2'
 prepare() {
   cd "$pkgname-$pkgver"
   patch -p1 < ../spdlog-psp.patch
+
+  # patch spdlog.pc.in
+  sed -i 's/@CMAKE_INSTALL_PREFIX@/${PSPDEV}\/psp/' ./cmake/spdlog.pc.in
+  sed -i 's/@PKG_CONFIG_INCLUDEDIR@/${PSPDEV}\/include/' ./cmake/spdlog.pc.in
+  sed -i 's/@PKG_CONFIG_LIBDIR@/${PSPDEV}\/lib/' ./cmake/spdlog.pc.in
 }
 
 build() {

@@ -17,6 +17,11 @@ sha256sums=("e6a2b43c6ec4779fb53b15b705f7c20b4eb9d5ae35784d610ac6daec30737019"
 prepare() {
     cd "$pkgname-$pkgver"
     patch -p1 < ../fmt-psp.patch
+
+    # patch fmt.pc.in
+    sed -i 's/@CMAKE_INSTALL_PREFIX@/${PSPDEV}\/psp/' ./support/cmake/fmt.pc.in
+    sed -i 's/@libdir_for_pc_file@/${PSPDEV}\/lib/' ./support/cmake/fmt.pc.in
+    sed -i 's/@includedir_for_pc_file@/${PSPDEV}\/include/' ./support/cmake/fmt.pc.in
 }
 
 build() {
