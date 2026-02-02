@@ -20,8 +20,6 @@ prepare() {
 
     # patch fmt.pc.in
     sed -i 's/@CMAKE_INSTALL_PREFIX@/${PSPDEV}\/psp/' ./support/cmake/fmt.pc.in
-    sed -i 's/@libdir_for_pc_file@/${PSPDEV}\/lib/' ./support/cmake/fmt.pc.in
-    sed -i 's/@includedir_for_pc_file@/${PSPDEV}\/include/' ./support/cmake/fmt.pc.in
 }
 
 build() {

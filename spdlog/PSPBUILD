@@ -20,8 +20,6 @@ prepare() {
 
   # patch spdlog.pc.in
   sed -i 's/@CMAKE_INSTALL_PREFIX@/${PSPDEV}\/psp/' ./cmake/spdlog.pc.in
-  sed -i 's/@PKG_CONFIG_INCLUDEDIR@/${PSPDEV}\/include/' ./cmake/spdlog.pc.in
-  sed -i 's/@PKG_CONFIG_LIBDIR@/${PSPDEV}\/lib/' ./cmake/spdlog.pc.in
 }
 
 build() {
